@@ -1,0 +1,6 @@
+framework module Pods_MyGratitudeJournal {
+  umbrella header "Pods-MyGratitudeJournal-umbrella.h"
+
+  export *
+  module * { export * }
+}
