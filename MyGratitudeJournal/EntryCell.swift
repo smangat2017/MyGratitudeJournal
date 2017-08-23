@@ -14,9 +14,4 @@ class EntryCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    func updateUI() {
-        
-    }
-
 }
