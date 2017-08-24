@@ -361,11 +361,44 @@
                     <connections>
                         <segue destination="mIz-Cd-pqp" kind="relationship" relationship="viewControllers" id="sjg-hs-v6F"/>
                         <segue destination="BG8-RE-9B4" kind="relationship" relationship="viewControllers" id="pIy-Wy-dGI"/>
+                        <segue destination="6l9-xV-IBZ" kind="relationship" relationship="viewControllers" id="AUT-4p-nUK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4P-DJ-B8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1282" y="366"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="ssw-9s-BXb">
+            <objects>
+                <viewController id="6l9-xV-IBZ" customClass="TestingContactsViewController" customModule="MyGratitudeJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AEL-2C-phR"/>
+                        <viewControllerLayoutGuide type="bottom" id="UR5-gT-SEw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zLn-RJ-fXb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAH-oN-D2I">
+                                <rect key="frame" x="156.5" y="318" width="62" height="30"/>
+                                <state key="normal" title="Contacts"/>
+                                <connections>
+                                    <action selector="btnSelected:" destination="6l9-xV-IBZ" eventType="touchUpInside" id="ovN-km-ZhU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eAH-oN-D2I" firstAttribute="centerX" secondItem="zLn-RJ-fXb" secondAttribute="centerX" id="SXO-E6-Oiw"/>
+                            <constraint firstItem="eAH-oN-D2I" firstAttribute="centerY" secondItem="zLn-RJ-fXb" secondAttribute="centerY" id="WBc-d5-RHg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="XJg-yo-5h3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iu0-bM-Uwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-647.20000000000005" y="1624.1379310344828"/>
         </scene>
         <!--New Entry-->
         <scene sceneID="Ygt-pN-Xlh">

@@ -52,7 +52,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "PST")
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
         return dateFormatter.string(from: currentDate)
     }
     

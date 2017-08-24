@@ -33,8 +33,9 @@ class ViewEntriesController: UIViewController, UITableViewDelegate, UITableViewD
                         (entryElement["xcitedSecondEntry"] as? String)!, xthird:
                         (entryElement["xcitedThirdEntry"] as? String)!, emotion:
                         (entryElement["emotion"] as? String)!, date: (entryElement["date"] as? String)!)
-                    self.entries.insert(entry, at: 0)
+                    self.entries.append(entry)
                 }
+                self.entries.sort(by: {$0.entryDate > $1.entryDate})
             }
             self.entryView.reloadData()
             }) { (error) in

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2C0149F41F4E69C80013CE9E /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0149F31F4E69C80013CE9E /* AKPickerView.swift */; };
+		2C0149F71F4F97CF0013CE9E /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0149F51F4F97CF0013CE9E /* Contacts.framework */; };
+		2C0149F81F4F97CF0013CE9E /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C0149F61F4F97CF0013CE9E /* ContactsUI.framework */; };
+		2C0149FA1F4F9C550013CE9E /* TestingContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0149F91F4F9C550013CE9E /* TestingContactsViewController.swift */; };
 		2C72E3BE1F4B919A0041AA8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72E3BD1F4B919A0041AA8A /* AppDelegate.swift */; };
 		2C72E3C01F4B919A0041AA8A /* NewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */; };
 		2C72E3C31F4B919A0041AA8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C72E3C11F4B919A0041AA8A /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		2C0149F31F4E69C80013CE9E /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		2C0149F51F4F97CF0013CE9E /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		2C0149F61F4F97CF0013CE9E /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		2C0149F91F4F9C550013CE9E /* TestingContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingContactsViewController.swift; sourceTree = "<group>"; };
 		2C72E3BA1F4B919A0041AA8A /* MyGratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C72E3BD1F4B919A0041AA8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryController.swift; sourceTree = "<group>"; };
@@ -43,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0149F71F4F97CF0013CE9E /* Contacts.framework in Frameworks */,
+				2C0149F81F4F97CF0013CE9E /* ContactsUI.framework in Frameworks */,
 				77FCCBDB9B4DD5EF244A6C01 /* Pods_MyGratitudeJournal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +131,7 @@
 			children = (
 				2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */,
 				2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */,
+				2C0149F91F4F9C550013CE9E /* TestingContactsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -130,6 +139,8 @@
 		EB24BE461ECE03006A1C850B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C0149F51F4F97CF0013CE9E /* Contacts.framework */,
+				2C0149F61F4F97CF0013CE9E /* ContactsUI.framework */,
 				8C6DA5A42B217673A2D38E6C /* Pods_MyGratitudeJournal.framework */,
 			);
 			name = Frameworks;
@@ -262,6 +273,7 @@
 			files = (
 				2C72E3D31F4BB03F0041AA8A /* Entry.swift in Sources */,
 				2C72E3C01F4B919A0041AA8A /* NewEntryController.swift in Sources */,
+				2C0149FA1F4F9C550013CE9E /* TestingContactsViewController.swift in Sources */,
 				2C0149F41F4E69C80013CE9E /* AKPickerView.swift in Sources */,
 				2CAD02761F4BDC3C00A8A00F /* ViewEntriesController.swift in Sources */,
 				2CAD02781F4D000900A8A00F /* EntryCell.swift in Sources */,
