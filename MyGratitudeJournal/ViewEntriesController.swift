@@ -20,27 +20,19 @@ class ViewEntriesController: UIViewController, UITableViewDelegate, UITableViewD
         entryView.delegate =  self
         entryView.dataSource = self
         loadData()
-        listenForNewData()
     }
     
-    func listenForNewData(){
-        let ref = FIRDatabase.database().reference()
-        ref.child("journalEntries").observe(.childAdded, with: { snapshot in
-            print("THE SHIT IS HAPPENING")
-            print(snapshot.value!)
-        })
-    }
     
     func loadData() {
-        self.entries.removeAll()
         let ref = FIRDatabase.database().reference()
-        ref.child("journalEntries").observeSingleEvent(of: .value, with:{ (snapshot) in
+        ref.child("journalEntries").observe(.value, with:{ (snapshot) in
             if let entryDict = snapshot.value as? [String:AnyObject] {
+                self.entries.removeAll()
                 for (_ , entryElement) in entryDict {
                     let entry = Entry(gfirst: (entryElement["gtudeFirstEntry"] as? String)!, gsecond:(entryElement["gtudeSecondEntry"] as? String)!, gthird:(entryElement["gtudeThirdEntry"] as? String)!, xfirst: (entryElement["xcitedFirstEntry"] as? String)!, xsecond:
                         (entryElement["xcitedSecondEntry"] as? String)!, xthird:
                         (entryElement["xcitedThirdEntry"] as? String)!, emotion:
-                        (entryElement["emotion"] as? String)!, date: (entryElement["date"] as? Date)!)
+                        (entryElement["emotion"] as? String)!, date: (entryElement["date"] as? String)!)
                     self.entries.insert(entry, at: 0)
                 }
             }
@@ -48,6 +40,7 @@ class ViewEntriesController: UIViewController, UITableViewDelegate, UITableViewD
             }) { (error) in
                 print(error.localizedDescription)
             }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

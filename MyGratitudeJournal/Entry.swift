@@ -17,7 +17,7 @@ class Entry {
     private var _xcitedSecondEntry: String!
     private var _xcitedThirdEntry: String!
     private var _entryEmotion: String!
-    private var _entryDate : Date!
+    private var _entryDate : String!
     
     var gtudeFirstEntry: String {
         return _gtudeFirstEntry
@@ -47,11 +47,11 @@ class Entry {
         return _entryEmotion
     }
     
-    var entryDate: Date {
+    var entryDate: String {
         return _entryDate
     }
     
-    init(gfirst: String, gsecond: String, gthird: String, xfirst: String, xsecond: String, xthird: String, emotion: String, date: Date){
+    init(gfirst: String, gsecond: String, gthird: String, xfirst: String, xsecond: String, xthird: String, emotion: String, date: String){
         self._gtudeFirstEntry = gfirst
         self._gtudeSecondEntry = gsecond
         self._gtudeThirdEntry = gthird

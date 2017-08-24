@@ -26,7 +26,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
     
     
     @IBAction func createNewEntry(_ sender: Any) {
-        let currentDate = Date()
+        let currentDate = getDate()
         let entry = Entry(gfirst: gtudeFirstEntry.text!, gsecond: gtudeSecondEntry.text!, gthird: gtudeThirdEntry.text!, xfirst: xcitedFirstEntry.text!, xsecond: xcitedSecondEntry.text!, xthird: xcitedThirdEntry.text!, emotion: self.self.emotions[pickerView.selectedItem], date: currentDate)
         let ref = FIRDatabase.database().reference()
         let key = ref.child("journalEntries").childByAutoId().key
@@ -37,7 +37,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
                               "xcitedSecondEntry" : entry.xcitedSecondEntry,
                               "xcitedThirdEntry" : entry.xcitedThirdEntry,
                               "emotion" : entry.entryEmotion,
-                              "date" : entry.entryDate] as [String : Any]
+                              "date" : entry.entryDate]
         let gratitudeUpdate = ["/journalEntries/\(key)": gratitudeEntry]
         ref.updateChildValues(gratitudeUpdate, withCompletionBlock: { (error, ref) -> Void in
             self.navigationController?.popViewController(animated: true)
@@ -46,6 +46,15 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         self.tabBarController?.selectedIndex = 1
     }
     
+    
+    func getDate() -> String {
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "PST")
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "MM-dd"
+        return dateFormatter.string(from: currentDate)
+    }
     
     func clearTextLabels() {
         self.gtudeFirstEntry.text = ""
