@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0149F41F4E69C80013CE9E /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0149F31F4E69C80013CE9E /* AKPickerView.swift */; };
 		2C72E3BE1F4B919A0041AA8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72E3BD1F4B919A0041AA8A /* AppDelegate.swift */; };
 		2C72E3C01F4B919A0041AA8A /* NewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */; };
 		2C72E3C31F4B919A0041AA8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C72E3C11F4B919A0041AA8A /* Main.storyboard */; };
@@ -14,13 +15,13 @@
 		2C72E3C81F4B919B0041AA8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C72E3C61F4B919B0041AA8A /* LaunchScreen.storyboard */; };
 		2C72E3D31F4BB03F0041AA8A /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72E3D21F4BB03F0041AA8A /* Entry.swift */; };
 		2C72E3D51F4BBDB30041AA8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C72E3D41F4BBDB30041AA8A /* GoogleService-Info.plist */; };
-		2CAD02741F4BDACA00A8A00F /* EntrySuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD02731F4BDACA00A8A00F /* EntrySuccessController.swift */; };
 		2CAD02761F4BDC3C00A8A00F /* ViewEntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */; };
 		2CAD02781F4D000900A8A00F /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD02771F4D000900A8A00F /* EntryCell.swift */; };
 		77FCCBDB9B4DD5EF244A6C01 /* Pods_MyGratitudeJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6DA5A42B217673A2D38E6C /* Pods_MyGratitudeJournal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0149F31F4E69C80013CE9E /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		2C72E3BA1F4B919A0041AA8A /* MyGratitudeJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGratitudeJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C72E3BD1F4B919A0041AA8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEntryController.swift; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		2C72E3C91F4B919B0041AA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C72E3D21F4BB03F0041AA8A /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		2C72E3D41F4BBDB30041AA8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2CAD02731F4BDACA00A8A00F /* EntrySuccessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrySuccessController.swift; sourceTree = "<group>"; };
 		2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEntriesController.swift; sourceTree = "<group>"; };
 		2CAD02771F4D000900A8A00F /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
 		4E61F658188784550818A037 /* Pods-MyGratitudeJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGratitudeJournal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyGratitudeJournal/Pods-MyGratitudeJournal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +59,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2C0149F21F4E69A50013CE9E /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				2C0149F31F4E69C80013CE9E /* AKPickerView.swift */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		2C72E3B11F4B919A0041AA8A = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +88,9 @@
 		2C72E3BC1F4B919A0041AA8A /* MyGratitudeJournal */ = {
 			isa = PBXGroup;
 			children = (
-				2C72E3D11F4BAA2C0041AA8A /* Controller */,
 				2C72E3D01F4BAA1B0041AA8A /* View */,
+				2C0149F21F4E69A50013CE9E /* Libs */,
+				2C72E3D11F4BAA2C0041AA8A /* Controller */,
 				2C72E3CF1F4BAA0F0041AA8A /* Model */,
 				2C72E3BD1F4B919A0041AA8A /* AppDelegate.swift */,
 				2C72E3C11F4B919A0041AA8A /* Main.storyboard */,
@@ -113,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */,
-				2CAD02731F4BDACA00A8A00F /* EntrySuccessController.swift */,
 				2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */,
 			);
 			name = Controller;
@@ -254,7 +262,7 @@
 			files = (
 				2C72E3D31F4BB03F0041AA8A /* Entry.swift in Sources */,
 				2C72E3C01F4B919A0041AA8A /* NewEntryController.swift in Sources */,
-				2CAD02741F4BDACA00A8A00F /* EntrySuccessController.swift in Sources */,
+				2C0149F41F4E69C80013CE9E /* AKPickerView.swift in Sources */,
 				2CAD02761F4BDC3C00A8A00F /* ViewEntriesController.swift in Sources */,
 				2CAD02781F4D000900A8A00F /* EntryCell.swift in Sources */,
 				2C72E3BE1F4B919A0041AA8A /* AppDelegate.swift in Sources */,
