@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jVu-Gr-ECZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jVu-Gr-ECZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -380,26 +380,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="My Entry..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBF-Qa-uA4">
-                                <rect key="frame" x="119.5" y="313.5" width="135.5" height="60"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="28"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="My entry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QG7-qE-m9F" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
+                                <rect key="frame" x="54.5" y="323" width="266" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="266" id="v7l-an-7fq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="editingChange:" destination="6l9-xV-IBZ" eventType="editingChanged" id="cIW-LO-eSU"/>
-                                    <action selector="textField:" destination="6l9-xV-IBZ" eventType="valueChanged" id="Fjt-D5-CUY"/>
+                                    <action selector="editingChange:" destination="6l9-xV-IBZ" eventType="editingChanged" id="VRc-jQ-1mv"/>
                                 </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mBF-Qa-uA4" firstAttribute="centerX" secondItem="zLn-RJ-fXb" secondAttribute="centerX" id="NjW-SB-0Yb"/>
-                            <constraint firstItem="mBF-Qa-uA4" firstAttribute="centerY" secondItem="zLn-RJ-fXb" secondAttribute="centerY" id="kkZ-1a-F40"/>
+                            <constraint firstItem="QG7-qE-m9F" firstAttribute="centerX" secondItem="zLn-RJ-fXb" secondAttribute="centerX" id="e5d-Au-ikt"/>
+                            <constraint firstItem="QG7-qE-m9F" firstAttribute="centerY" secondItem="zLn-RJ-fXb" secondAttribute="centerY" id="jHL-83-H3A"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lxz-zb-5dH"/>
                     <connections>
-                        <outlet property="textBox" destination="mBF-Qa-uA4" id="eQO-UC-R95"/>
+                        <outlet property="myTextField" destination="QG7-qE-m9F" id="0h7-Fp-edK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iu0-bM-Uwd" userLabel="First Responder" sceneMemberID="firstResponder"/>

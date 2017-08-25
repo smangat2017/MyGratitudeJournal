@@ -12,11 +12,12 @@ import Contacts
 
 class TestingContactsViewController: UIViewController {
     
-    @IBOutlet weak var textBox: UITextField!
+    @IBOutlet weak var myTextField: SearchTextField!
     
     // data
     var contactStore = CNContactStore()
     var contacts = [ContactEntry]()
+    var names = [String]()
     
     
     override func viewDidLoad() {
@@ -32,24 +33,42 @@ class TestingContactsViewController: UIViewController {
                 })
             }
         }
+        names = contacts.map{$0.name.lowercased()}
+        self.myTextField.inlineMode = true
+        self.myTextField.startFilteringAfter = "@"
+        self.myTextField.startSuggestingInmediately = true
+        self.myTextField.filterStrings(names)
     
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    
     }
     @IBAction func editingChange(_ sender: Any) {
-        let atIndex = self.textBox.text.index(of: "@")
-        if atIndex != self.textBox.endIndex {
-            var attributedString = NSMutableAttributedString(string: self.textBox.text)
-            var remainingString = self.textBox.suffix(from: atIndex)
-            spaceIndex = remaininString.index(of: " ")
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: NSColor.redColor() , range: range)
-            
+        let pattern = "@((\\w+)(?:\\s\\w+)?)"
+        let inString = self.myTextField.text!
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        let range = NSMakeRange(0, inString.characters.count)
+        let matches = (regex?.matches(in: inString, options: [], range: range))!
+        let attrString = NSMutableAttributedString(string: inString, attributes:nil)
+        //Iterate over regex matches
+        for match in matches.reversed() {
+            for i in 1...2{
+                let matchRange = match.rangeAt(i)
+                //Properly print match range
+                let contact = (inString as NSString).substring(with: matchRange).lowercased()
+                if names.contains(contact){
+                    attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange , range: matchRange)
+                }
+            }
+
         }
-        
+        self.myTextField.attributedText = attrString
     }
+
+    
     
     func requestAccessToContacts(_ completion: @escaping (_ success: Bool) -> Void) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)

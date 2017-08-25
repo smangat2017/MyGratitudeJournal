@@ -19,17 +19,17 @@ class EntryCell: UITableViewCell {
         // Initialization code
     }
     
-    func updateUI(entry: Entry) {
+    func updateUI(_ entry: Entry) {
         entrySnippet.text = entry.gtudeFirstEntry + " " + entry.gtudeSecondEntry + " " + entry.gtudeThirdEntry + entry.xcitedFirstEntry + " " + entry.xcitedSecondEntry + " " + entry.xcitedThirdEntry
-        dateLabel.text = getDate(date: entry.entryDate)
+        dateLabel.text = getDate(entry.entryDate)
         emotionLabel.text = entry.entryEmotion
     }
     
-    func getDate(date: String) -> String {
+    func getDate(_ date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
         dateFormatter.timeZone = TimeZone(abbreviation: "PST")
-        dateFormatter.locale = NSLocale.current
+        dateFormatter.locale = Locale.current
         let date = dateFormatter.date(from: date)
         dateFormatter.dateFormat = "MM-dd"
         return dateFormatter.string(from: date!)

@@ -47,7 +47,7 @@ class ViewEntriesController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as? EntryCell {
             let entrycell = entries[indexPath.row]
-            cell.updateUI(entry: entrycell)
+            cell.updateUI(entrycell)
             return cell
         } else {
             return UITableViewCell()

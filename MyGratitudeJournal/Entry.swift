@@ -10,14 +10,14 @@ import Foundation
 
 class Entry {
     
-    private var _gtudeFirstEntry: String!
-    private var _gtudeSecondEntry: String!
-    private var _gtudeThirdEntry: String!
-    private var _xcitedFirstEntry: String!
-    private var _xcitedSecondEntry: String!
-    private var _xcitedThirdEntry: String!
-    private var _entryEmotion: String!
-    private var _entryDate : String!
+    fileprivate var _gtudeFirstEntry: String!
+    fileprivate var _gtudeSecondEntry: String!
+    fileprivate var _gtudeThirdEntry: String!
+    fileprivate var _xcitedFirstEntry: String!
+    fileprivate var _xcitedSecondEntry: String!
+    fileprivate var _xcitedThirdEntry: String!
+    fileprivate var _entryEmotion: String!
+    fileprivate var _entryDate : String!
     
     var gtudeFirstEntry: String {
         return _gtudeFirstEntry

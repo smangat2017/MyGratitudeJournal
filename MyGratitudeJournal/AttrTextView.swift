@@ -19,7 +19,7 @@ class AttrTextView: UITextView {
     var callBack: ((String, wordType) -> Void)?
     
     
-    public func setText(text: String, withHashtagColor hashtagColor: UIColor, andMentionColor mentionColor: UIColor, andCallBack callBack: @escaping (String, wordType) -> Void, normalFont: UIFont, hashTagFont: UIFont, mentionFont: UIFont) {
+    open func setText(_ text: String, withHashtagColor hashtagColor: UIColor, andMentionColor mentionColor: UIColor, andCallBack callBack: @escaping (String, wordType) -> Void, normalFont: UIFont, hashTagFont: UIFont, mentionFont: UIFont) {
         self.callBack = callBack
         self.attrString = NSMutableAttributedString(string: text)
         self.textString = NSString(string: text)
@@ -29,8 +29,8 @@ class AttrTextView: UITextView {
         attrString?.addAttribute(NSForegroundColorAttributeName, value: UIColor.white, range: NSRange(location: 0, length: (textString?.length)!))
         
         // Call a custom set Hashtag and Mention Attributes Function
-        setAttrWithName(attrName: "Hashtag", wordPrefix: "#", color: hashtagColor, text: text, font: hashTagFont)
-        setAttrWithName(attrName: "Mention", wordPrefix: "@", color: mentionColor, text: text, font: mentionFont)
+        setAttrWithName("Hashtag", wordPrefix: "#", color: hashtagColor, text: text, font: hashTagFont)
+        setAttrWithName("Mention", wordPrefix: "@", color: mentionColor, text: text, font: mentionFont)
         
         // Add tap gesture that calls a function tapRecognized when tapped
         let tapper = UITapGestureRecognizer(target: self, action: #selector(self.tapRecognized(tapGesture:)))
@@ -39,7 +39,7 @@ class AttrTextView: UITextView {
     
     
     
-    private func setAttrWithName(attrName: String, wordPrefix: String, color: UIColor, text: String, font: UIFont) {
+    fileprivate func setAttrWithName(_ attrName: String, wordPrefix: String, color: UIColor, text: String, font: UIFont) {
         //Words can be separated by either a space or a line break
         let charSet = CharacterSet(charactersIn: " \n")
         let words = text.components(separatedBy: charSet)
@@ -57,7 +57,7 @@ class AttrTextView: UITextView {
     
     
     
-    func tapRecognized(tapGesture: UITapGestureRecognizer) {
+    func tapRecognized(_ tapGesture: UITapGestureRecognizer) {
         var wordString: String?         // The String value of the word to pass into callback function
         var char: NSAttributedString!   //The character the user clicks on. It is non optional because if the user clicks on nothing, char will be a space or " "
         var word: NSAttributedString?   //The word the user clicks on

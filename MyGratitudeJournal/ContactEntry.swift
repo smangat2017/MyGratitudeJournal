@@ -8,13 +8,22 @@ import AddressBook
 import Contacts
 
 class ContactEntry {
-    var _name: String!
-    var _phone: String?
+    fileprivate var _name: String!
+    fileprivate var _phone: String?
     
     init(name: String, phone: String?) {
         self._name = name
         self._phone = phone
     }
+    
+    var name: String {
+        return _name
+    }
+    
+    var phone: String {
+        return _phone!
+    }
+    
     
     init?(cnContact: CNContact) {
         // name

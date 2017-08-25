@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 import FirebaseDatabase
 
 class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerViewDataSource, AKPickerViewDelegate {
@@ -51,7 +52,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "PST")
-        dateFormatter.locale = NSLocale.current
+        dateFormatter.locale = Locale.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss zzz"
         return dateFormatter.string(from: currentDate)
     }
