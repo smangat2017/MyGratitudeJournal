@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,14 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FIRApp.configure()
+        FirebaseApp.configure()
         ( window?.rootViewController as! UITabBarController ).tabBar.tintColor = UIColor(red:0.96, green:0.65, blue:0.14, alpha:1.0)
         ( window?.rootViewController as! UITabBarController ).tabBar.layer.borderWidth = 0.50
         ( window?.rootViewController as! UITabBarController ).tabBar.layer.borderColor = UIColor.clear.cgColor
         ( window?.rootViewController as! UITabBarController ).tabBar.clipsToBounds = true
-
         return true
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Auth.auth().setAPNSToken(deviceToken, type: .prod)
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

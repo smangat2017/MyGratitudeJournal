@@ -24,7 +24,7 @@ class ViewEntriesController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func loadData() {
-        let ref = FIRDatabase.database().reference()
+        let ref = Database.database().reference()
         ref.child("journalEntries").observe(.value, with:{ (snapshot) in
             if let entryDict = snapshot.value as? [String:AnyObject] {
                 self.entries.removeAll()

@@ -8,5 +8,8 @@ target 'MyGratitudeJournal' do
   # Pods for MyGratitudeJournal
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI/Auth', '~> 4.0'
+  pod 'FirebaseUI/Phone', '~> 4.0'
 
 end

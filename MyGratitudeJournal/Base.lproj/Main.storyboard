@@ -58,23 +58,32 @@
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAV-JO-Fhs">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAV-JO-Fhs" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
                                                         <rect key="frame" x="9" y="41" width="326" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="xcitedFirstEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="vLT-O8-XIL"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-PB-KCs">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-PB-KCs" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
                                                         <rect key="frame" x="9" y="80" width="326" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="xcitedSecondEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="t9t-Pb-D6h"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oaS-gf-QUt">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oaS-gf-QUt" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="119" width="326" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="xcitedThirdEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="N87-TG-STk"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -149,23 +158,33 @@
                                                         <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="01u-4A-8e6">
-                                                        <rect key="frame" x="9" y="41" width="326" height="31"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJd-hh-GCu">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="2." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJd-hh-GCu" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
                                                         <rect key="frame" x="9" y="80" width="326" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="gtudeSecondEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="tnC-hD-sYb"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-5Q-nQG">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgJ-5Q-nQG" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="119" width="326" height="31"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="gtudeThirdEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="KcP-Dg-UI5"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7b-qz-voa" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="41" width="326" height="31"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="gtudeFirstEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="S6a-v1-3h7"/>
+                                                            <action selector="gtudeSecondEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="S8w-3j-7aX"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,14 +192,13 @@
                                                     <constraint firstItem="hgJ-5Q-nQG" firstAttribute="top" secondItem="rJd-hh-GCu" secondAttribute="bottom" constant="8" id="0TP-Vs-RRT"/>
                                                     <constraint firstAttribute="bottom" secondItem="hgJ-5Q-nQG" secondAttribute="bottom" constant="21" id="4fW-2t-ED8"/>
                                                     <constraint firstItem="rJd-hh-GCu" firstAttribute="leading" secondItem="U5G-9c-0vM" secondAttribute="leading" constant="9" id="5Pm-dy-FKw"/>
-                                                    <constraint firstItem="01u-4A-8e6" firstAttribute="top" secondItem="HDM-qu-aJu" secondAttribute="bottom" constant="8" id="82I-bI-wm6"/>
                                                     <constraint firstAttribute="trailing" secondItem="hgJ-5Q-nQG" secondAttribute="trailing" constant="9" id="DUE-1m-1EN"/>
                                                     <constraint firstItem="hgJ-5Q-nQG" firstAttribute="leading" secondItem="U5G-9c-0vM" secondAttribute="leading" constant="8" id="GHL-fH-VY4"/>
-                                                    <constraint firstItem="01u-4A-8e6" firstAttribute="top" secondItem="HDM-qu-aJu" secondAttribute="bottom" constant="8" id="GYT-wm-je6"/>
                                                     <constraint firstItem="HDM-qu-aJu" firstAttribute="leading" secondItem="U5G-9c-0vM" secondAttribute="leading" constant="8" id="LJu-ud-5h5"/>
-                                                    <constraint firstAttribute="trailing" secondItem="01u-4A-8e6" secondAttribute="trailing" constant="8" id="R8Y-SJ-Npn"/>
-                                                    <constraint firstItem="rJd-hh-GCu" firstAttribute="top" secondItem="01u-4A-8e6" secondAttribute="bottom" constant="8" id="TkU-UC-cfj"/>
-                                                    <constraint firstItem="01u-4A-8e6" firstAttribute="leading" secondItem="U5G-9c-0vM" secondAttribute="leading" constant="9" id="qpu-ye-ILs"/>
+                                                    <constraint firstItem="rJd-hh-GCu" firstAttribute="top" secondItem="v7b-qz-voa" secondAttribute="bottom" constant="8" id="bHk-Ge-TEh"/>
+                                                    <constraint firstItem="v7b-qz-voa" firstAttribute="leading" secondItem="U5G-9c-0vM" secondAttribute="leading" constant="8" id="gOf-8Z-kk3"/>
+                                                    <constraint firstItem="v7b-qz-voa" firstAttribute="top" secondItem="HDM-qu-aJu" secondAttribute="bottom" constant="8" id="gs0-qR-1Q7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="v7b-qz-voa" secondAttribute="trailing" constant="9" id="pop-8v-zU4"/>
                                                     <constraint firstAttribute="trailing" secondItem="rJd-hh-GCu" secondAttribute="trailing" constant="8" id="sXs-QH-eDx"/>
                                                     <constraint firstItem="HDM-qu-aJu" firstAttribute="top" secondItem="U5G-9c-0vM" secondAttribute="top" constant="8" id="vgt-Qe-3QY"/>
                                                 </constraints>
@@ -233,13 +251,13 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="gtudeFirstEntry" destination="01u-4A-8e6" id="9Xv-JR-k1H"/>
-                        <outlet property="gtudeSecondEntry" destination="rJd-hh-GCu" id="mof-Vz-9r1"/>
-                        <outlet property="gtudeThirdEntry" destination="hgJ-5Q-nQG" id="KpQ-2S-zzi"/>
+                        <outlet property="gtudeFirstEntry" destination="v7b-qz-voa" id="9jd-il-faL"/>
+                        <outlet property="gtudeSecondEntry" destination="rJd-hh-GCu" id="Y6M-uq-KTb"/>
+                        <outlet property="gtudeThirdEntry" destination="hgJ-5Q-nQG" id="pZ1-Kv-qzD"/>
                         <outlet property="pickerView" destination="cxo-uE-i9n" id="uYw-kt-laG"/>
-                        <outlet property="xcitedFirstEntry" destination="TAV-JO-Fhs" id="Ozz-5m-2QI"/>
-                        <outlet property="xcitedSecondEntry" destination="4mi-PB-KCs" id="kaJ-M9-C8w"/>
-                        <outlet property="xcitedThirdEntry" destination="oaS-gf-QUt" id="AHA-D1-mEq"/>
+                        <outlet property="xcitedFirstEntry" destination="TAV-JO-Fhs" id="4Vp-gg-76n"/>
+                        <outlet property="xcitedSecondEntry" destination="4mi-PB-KCs" id="Q0L-cq-oka"/>
+                        <outlet property="xcitedThirdEntry" destination="oaS-gf-QUt" id="Krp-gx-ovG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -345,7 +363,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ver-o9-AZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583.1999999999998" y="1389.3553223388308"/>
+            <point key="canvasLocation" x="4522.3999999999996" y="1389.3553223388308"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="W1s-Eu-KXI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKx-jW-Um7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="ZQD-9g-X2y" customClass="LoginViewController" customModule="MyGratitudeJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G7w-v2-xln"/>
+                        <viewControllerLayoutGuide type="bottom" id="3vz-Qj-mv3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n4A-sQ-2Bs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2324" y="366"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Tbo-Ck-1DZ">
@@ -361,52 +397,11 @@
                     <connections>
                         <segue destination="mIz-Cd-pqp" kind="relationship" relationship="viewControllers" id="sjg-hs-v6F"/>
                         <segue destination="BG8-RE-9B4" kind="relationship" relationship="viewControllers" id="pIy-Wy-dGI"/>
-                        <segue destination="Ce6-qC-pfh" kind="relationship" relationship="viewControllers" id="AUT-4p-nUK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4P-DJ-B8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1282" y="366"/>
-        </scene>
-        <!--Testing Contacts View Controller-->
-        <scene sceneID="ssw-9s-BXb">
-            <objects>
-                <viewController id="6l9-xV-IBZ" customClass="TestingContactsViewController" customModule="MyGratitudeJournal" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AEL-2C-phR"/>
-                        <viewControllerLayoutGuide type="bottom" id="UR5-gT-SEw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zLn-RJ-fXb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="My entry" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QG7-qE-m9F" customClass="SearchTextField" customModule="MyGratitudeJournal" customModuleProvider="target">
-                                <rect key="frame" x="54.5" y="323" width="266" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="266" id="v7l-an-7fq"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingChange:" destination="6l9-xV-IBZ" eventType="editingChanged" id="VRc-jQ-1mv"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="QG7-qE-m9F" firstAttribute="centerX" secondItem="zLn-RJ-fXb" secondAttribute="centerX" id="e5d-Au-ikt"/>
-                            <constraint firstItem="QG7-qE-m9F" firstAttribute="centerY" secondItem="zLn-RJ-fXb" secondAttribute="centerY" id="jHL-83-H3A"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Lxz-zb-5dH"/>
-                    <connections>
-                        <outlet property="myTextField" destination="QG7-qE-m9F" id="0h7-Fp-edK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Iu0-bM-Uwd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="292" y="1624.1379310344828"/>
         </scene>
         <!--New Entry-->
         <scene sceneID="Ygt-pN-Xlh">
@@ -458,26 +453,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1Y-j7-yl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2644" y="1389.3553223388308"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="BXI-Qg-GnW">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ce6-qC-pfh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XJg-yo-5h3"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qeU-UH-2Z7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="6l9-xV-IBZ" kind="relationship" relationship="rootViewController" id="A6R-zq-j0o"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xOZ-k9-iRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-647.20000000000005" y="1624.1379310344828"/>
+            <point key="canvasLocation" x="3583.1999999999998" y="1389.3553223388308"/>
         </scene>
     </scenes>
     <resources>

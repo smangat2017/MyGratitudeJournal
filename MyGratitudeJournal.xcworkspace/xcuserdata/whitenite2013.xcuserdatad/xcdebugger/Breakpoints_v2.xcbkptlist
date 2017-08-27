@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyGratitudeJournal/NewEntryController.swift"
-            timestampString = "525231523.697177"
+            timestampString = "525491015.07736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "NewEntryViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyGratitudeJournal/NewEntryController.swift"
-            timestampString = "525299084.159261"
+            timestampString = "525492933.859955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -145,6 +145,84 @@
             endingLineNumber = "71"
             landmarkName = "TestingContactsViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyGratitudeJournal/NewEntryController.swift"
+            timestampString = "525490972.662491"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "NewEntryViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyGratitudeJournal.NewEntryViewController.names.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MyGratitudeJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitenite2013/Dropbox/iOS%20Dev/MyGratitudeJournal/MyGratitudeJournal/NewEntryController.swift"
+                  timestampString = "525490973.739627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyGratitudeJournal.NewEntryViewController.names.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "MyGratitudeJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitenite2013/Dropbox/iOS%20Dev/MyGratitudeJournal/MyGratitudeJournal/NewEntryController.swift"
+                  timestampString = "525490973.742845"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyGratitudeJournal.NewEntryViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; MyGratitudeJournal.NewEntryViewController"
+                  moduleName = "MyGratitudeJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitenite2013/Dropbox/iOS%20Dev/MyGratitudeJournal/MyGratitudeJournal/NewEntryController.swift"
+                  timestampString = "525490973.745451"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyGratitudeJournal.NewEntryViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MyGratitudeJournal.NewEntryViewController&gt;"
+                  moduleName = "MyGratitudeJournal"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitenite2013/Dropbox/iOS%20Dev/MyGratitudeJournal/MyGratitudeJournal/NewEntryController.swift"
+                  timestampString = "525490973.74779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
