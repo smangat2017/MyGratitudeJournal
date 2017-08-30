@@ -136,7 +136,8 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
         let visibleRect = CGRect(origin: self.collectionView!.contentOffset, size: self.collectionView!.bounds.size)
         self.midX = visibleRect.midX;
         self.width = visibleRect.width / 2;
-        self.maxAngle = CGFloat(M_PI_2);
+        let halfPi = Double.pi / 2
+        self.maxAngle = CGFloat(halfPi);
     }
     
     fileprivate override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
@@ -150,7 +151,8 @@ private class AKCollectionViewLayout: UICollectionViewFlowLayout {
                 return attributes
             case .wheel:
                 let distance = attributes.frame.midX - self.midX;
-                let currentAngle = self.maxAngle * distance / self.width / CGFloat(M_PI_2);
+                let halfPi = Double.pi / 2
+                let currentAngle = self.maxAngle * distance / self.width / CGFloat(halfPi);
                 var transform = CATransform3DIdentity;
                 transform = CATransform3DTranslate(transform, -distance, 0, -self.width);
                 transform = CATransform3DRotate(transform, currentAngle, 0, 1, 0);

@@ -20,6 +20,12 @@
 		2C72E3D51F4BBDB30041AA8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C72E3D41F4BBDB30041AA8A /* GoogleService-Info.plist */; };
 		2CAD02761F4BDC3C00A8A00F /* ViewEntriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */; };
 		2CAD02781F4D000900A8A00F /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD02771F4D000900A8A00F /* EntryCell.swift */; };
+		2CDAFAD11F52A4EA00388736 /* ViewMentionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFAD01F52A4EA00388736 /* ViewMentionsController.swift */; };
+		2CDAFAD31F53508700388736 /* ViewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFAD21F53508700388736 /* ViewEntryController.swift */; };
+		2CDAFAD51F5376AF00388736 /* Mention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFAD41F5376AF00388736 /* Mention.swift */; };
+		2CDAFAD71F54CFC500388736 /* MentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFAD61F54CFC500388736 /* MentionCell.swift */; };
+		2CDAFADD1F552A4A00388736 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFADC1F552A4A00388736 /* SettingsViewController.swift */; };
+		2CDAFADF1F563E1700388736 /* EntrySnippetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAFADE1F563E1700388736 /* EntrySnippetTextField.swift */; };
 		2CFB9F731F4FC1E100C901C9 /* ContactEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFB9F721F4FC1E100C901C9 /* ContactEntry.swift */; };
 		77FCCBDB9B4DD5EF244A6C01 /* Pods_MyGratitudeJournal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C6DA5A42B217673A2D38E6C /* Pods_MyGratitudeJournal.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +47,12 @@
 		2C9785DF1F50EF4A005A091D /* MyGratitudeJournal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyGratitudeJournal.entitlements; sourceTree = "<group>"; };
 		2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEntriesController.swift; sourceTree = "<group>"; };
 		2CAD02771F4D000900A8A00F /* EntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
+		2CDAFAD01F52A4EA00388736 /* ViewMentionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMentionsController.swift; sourceTree = "<group>"; };
+		2CDAFAD21F53508700388736 /* ViewEntryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEntryController.swift; sourceTree = "<group>"; };
+		2CDAFAD41F5376AF00388736 /* Mention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mention.swift; sourceTree = "<group>"; };
+		2CDAFAD61F54CFC500388736 /* MentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionCell.swift; sourceTree = "<group>"; };
+		2CDAFADC1F552A4A00388736 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2CDAFADE1F563E1700388736 /* EntrySnippetTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrySnippetTextField.swift; sourceTree = "<group>"; };
 		2CFB9F721F4FC1E100C901C9 /* ContactEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEntry.swift; sourceTree = "<group>"; };
 		4E61F658188784550818A037 /* Pods-MyGratitudeJournal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyGratitudeJournal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyGratitudeJournal/Pods-MyGratitudeJournal.debug.xcconfig"; sourceTree = "<group>"; };
 		8C6DA5A42B217673A2D38E6C /* Pods_MyGratitudeJournal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyGratitudeJournal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +131,7 @@
 			children = (
 				2C72E3D21F4BB03F0041AA8A /* Entry.swift */,
 				2CFB9F721F4FC1E100C901C9 /* ContactEntry.swift */,
+				2CDAFAD41F5376AF00388736 /* Mention.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -127,7 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				2CAD02771F4D000900A8A00F /* EntryCell.swift */,
+				2CDAFAD61F54CFC500388736 /* MentionCell.swift */,
 				2C728CEC1F50A1CD00B70192 /* SearchTextField.swift */,
+				2CDAFADE1F563E1700388736 /* EntrySnippetTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -137,6 +152,9 @@
 			children = (
 				2C72E3BF1F4B919A0041AA8A /* NewEntryController.swift */,
 				2CAD02751F4BDC3C00A8A00F /* ViewEntriesController.swift */,
+				2CDAFAD01F52A4EA00388736 /* ViewMentionsController.swift */,
+				2CDAFAD21F53508700388736 /* ViewEntryController.swift */,
+				2CDAFADC1F552A4A00388736 /* SettingsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -289,12 +307,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C72E3D31F4BB03F0041AA8A /* Entry.swift in Sources */,
+				2CDAFAD31F53508700388736 /* ViewEntryController.swift in Sources */,
+				2CDAFAD71F54CFC500388736 /* MentionCell.swift in Sources */,
 				2C72E3C01F4B919A0041AA8A /* NewEntryController.swift in Sources */,
 				2CFB9F731F4FC1E100C901C9 /* ContactEntry.swift in Sources */,
 				2C0149F41F4E69C80013CE9E /* AKPickerView.swift in Sources */,
+				2CDAFAD11F52A4EA00388736 /* ViewMentionsController.swift in Sources */,
 				2CAD02761F4BDC3C00A8A00F /* ViewEntriesController.swift in Sources */,
+				2CDAFAD51F5376AF00388736 /* Mention.swift in Sources */,
 				2CAD02781F4D000900A8A00F /* EntryCell.swift in Sources */,
+				2CDAFADD1F552A4A00388736 /* SettingsViewController.swift in Sources */,
 				2C72E3BE1F4B919A0041AA8A /* AppDelegate.swift in Sources */,
+				2CDAFADF1F563E1700388736 /* EntrySnippetTextField.swift in Sources */,
 				2C728CED1F50A1CD00B70192 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

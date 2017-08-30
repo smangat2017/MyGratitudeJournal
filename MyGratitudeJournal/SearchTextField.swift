@@ -95,8 +95,6 @@ open class SearchTextField: UITextField {
     open var inlineMode: Bool = false {
         didSet {
             if inlineMode == true {
-                autocorrectionType = .no
-                spellCheckingType = .no
             }
         }
     }

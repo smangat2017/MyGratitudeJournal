@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuthUI
 import FirebasePhoneAuthUI
 import Firebase
+import PhoneNumberKit
 
 
 class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerViewDataSource, AKPickerViewDelegate, FUIAuthDelegate {
@@ -28,6 +29,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
     
     let emotions = ["😢", "😤", "😱", "🤗", "😇", "🤔", "🙃", "😎"]
     let emoLabels = ["sad", "mad", "scared", "joyful", "peaceful", "musing",  "silly", "powerful"]
+    let entrySnippets = ["gtudeFirstEntry","gtudeSecondEntry", "gtudeThirdEntry", "xcitedFirstEntry", "xcitedSecondEntry", "xcitedThirdEntry"]
 
     
     @IBOutlet weak var pickerView: AKPickerView!
@@ -38,15 +40,29 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
     @IBOutlet weak var gtudeThirdEntry: SearchTextField!
     @IBOutlet weak var gtudeSecondEntry: SearchTextField!
     @IBOutlet weak var gtudeFirstEntry: SearchTextField!
+    @IBOutlet weak var highlightThirdEntry: SearchTextField!
+    @IBOutlet weak var highlightSecondEntry: SearchTextField!
+    @IBOutlet weak var highlightFirstEntry: SearchTextField!
+    @IBOutlet weak var freeWriteEntry: UIScrollView!
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            self.initializeContactsOnLoad()
+            self.displayAlertToGetName()
+            self.setUpPickerWheel()
+            self.setUpSearchFields()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpFireBaseAuthUI()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(NewEntryViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        initializeContactsOnLoad()
-        setUpPickerWheel()
-        setUpSearchFields()
+        NotificationCenter.default.addObserver(self, selector: #selector(NewEntryViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(NewEntryViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,32 +70,33 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
     }
     
     @IBAction func createNewEntry(_ sender: Any) {
-        if Auth.auth().currentUser != nil {
-            print(Auth.auth().currentUser!)
-            let currentDate = getDate()
-            let entry = Entry(gfirst: gtudeFirstEntry.text!, gsecond: gtudeSecondEntry.text!, gthird: gtudeThirdEntry.text!, xfirst: xcitedFirstEntry.text!, xsecond: xcitedSecondEntry.text!, xthird: xcitedThirdEntry.text!, emotion: self.self.emotions[pickerView.selectedItem], date: currentDate)
-            let ref = Database.database().reference()
-            let key = ref.child("journalEntries").childByAutoId().key
-            let gratitudeEntry = ["gtudeFirstEntry" : entry.gtudeFirstEntry,
-                                  "gtudeSecondEntry" : entry.gtudeSecondEntry,
-                                  "gtudeThirdEntry" : entry.gtudeThirdEntry,
-                                  "xcitedFirstEntry" : entry.xcitedFirstEntry,
-                                  "xcitedSecondEntry" : entry.xcitedSecondEntry,
-                                  "xcitedThirdEntry" : entry.xcitedThirdEntry,
-                                  "emotion" : entry.entryEmotion,
-                                  "date" : entry.entryDate]
-            let gratitudeUpdate = ["/journalEntries/\(key)": gratitudeEntry]
-            ref.updateChildValues(gratitudeUpdate, withCompletionBlock: { (error, ref) -> Void in
-                self.navigationController?.popViewController(animated: true)
-            })
-            clearTextLabels()
-            self.tabBarController?.selectedIndex = 1            // ...
-        } else {
-            print("No user currently signed in :(")
-        }
+//        if Auth.auth().currentUser != nil {
+//            let userId = Auth.auth().currentUser!.uid
+//            let currentDate = getDate()
+//            let entry = Entry(gfirst: gtudeFirstEntry.text!, gsecond: gtudeSecondEntry.text!, gthird: gtudeThirdEntry.text!, xfirst: xcitedFirstEntry.text!, xsecond: xcitedSecondEntry.text!, xthird: xcitedThirdEntry.text!, emotion: self.emotions[pickerView.selectedItem], date: currentDate)
+//            let ref = Database.database().reference()
+//            let key = ref.child("journalEntries").childByAutoId().key
+//            let gratitudeEntry = ["gtudeFirstEntry" : entry.gtudeFirstEntry,
+//                                  "gtudeSecondEntry" : entry.gtudeSecondEntry,
+//                                  "gtudeThirdEntry" : entry.gtudeThirdEntry,
+//                                  "xcitedFirstEntry" : entry.xcitedFirstEntry,
+//                                  "xcitedSecondEntry" : entry.xcitedSecondEntry,
+//                                  "xcitedThirdEntry" : entry.xcitedThirdEntry,
+//                                  "emotion" : entry.entryEmotion,
+//                                  "date" : entry.entryDate]
+//            let gratitudeUpdate = ["/journalEntries/\(userId)/\(key)": gratitudeEntry]
+//            ref.updateChildValues(gratitudeUpdate, withCompletionBlock: { (error, ref) -> Void in
+//                self.navigationController?.popViewController(animated: true)
+//            })
+//            sendMentions()
+//            clearTextLabels()
+//            self.tabBarController?.selectedIndex = 1            
+//        } else {
+//            return
+//        }
     }
     
-    
+
     @IBAction func gtudeFirstEdited(_ sender: Any) {
         let inString = self.gtudeFirstEntry.text!
         let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
@@ -87,55 +104,66 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         self.mentions["gtudeFirstEntry"] = references
     }
     
+    
     @IBAction func gtudeSecondEdited(_ sender: Any) {
         let inString = self.gtudeSecondEntry.text!
         let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
         self.gtudeSecondEntry.attributedText = newString
         self.mentions["gtudeSecondEntry"] = references
-        print(mentions)
     }
     
     @IBAction func gtudeThirdEdited(_ sender: Any) {
-        
+        let inString = self.gtudeThirdEntry.text!
+        let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
+        self.gtudeThirdEntry.attributedText = newString
+        self.mentions["gtudeThirdEntry"] = references
     }
     
     @IBAction func xcitedFirstEdited(_ sender: Any) {
-        
+        let inString = self.xcitedFirstEntry.text!
+        let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
+        self.xcitedFirstEntry.attributedText = newString
+        self.mentions["xcitedFirstEntry"] = references
     }
     
     @IBAction func xcitedSecondEdited(_ sender: Any) {
-        
+        let inString = self.xcitedSecondEntry.text!
+        let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
+        self.xcitedSecondEntry.attributedText = newString
+        self.mentions["xcitedSecondEntry"] = references
     }
     
     @IBAction func xcitedThirdEdited(_ sender: Any) {
+        let inString = self.xcitedThirdEntry.text!
+        let (newString, references) = generateAttStringAtMentionsHighlighted(inString: inString)
+        self.xcitedThirdEntry.attributedText = newString
+        self.mentions["xcitedThirdEntry"] = references
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
     }
     
     func setUpSearchFields() {
-        self.gtudeFirstEntry.inlineMode = true
-        self.gtudeFirstEntry.startFilteringAfter = "@"
-        self.gtudeFirstEntry.startSuggestingInmediately = true
-        self.gtudeFirstEntry.filterStrings(names)
-        self.gtudeSecondEntry.inlineMode = true
-        self.gtudeSecondEntry.startFilteringAfter = "@"
-        self.gtudeSecondEntry.startSuggestingInmediately = true
-        self.gtudeThirdEntry.filterStrings(names)
-        self.gtudeThirdEntry.inlineMode = true
-        self.gtudeThirdEntry.startFilteringAfter = "@"
-        self.gtudeThirdEntry.startSuggestingInmediately = true
-        self.gtudeThirdEntry.filterStrings(names)
-        self.xcitedFirstEntry.inlineMode = true
-        self.xcitedFirstEntry.startFilteringAfter = "@"
-        self.xcitedFirstEntry.startSuggestingInmediately = true
-        self.xcitedSecondEntry.filterStrings(names)
-        self.xcitedSecondEntry.inlineMode = true
-        self.xcitedSecondEntry.startFilteringAfter = "@"
-        self.xcitedSecondEntry.startSuggestingInmediately = true
-        self.xcitedThirdEntry.filterStrings(names)
-        self.xcitedThirdEntry.inlineMode = true
-        self.xcitedThirdEntry.startFilteringAfter = "@"
-        self.xcitedThirdEntry.startSuggestingInmediately = true
-        self.xcitedThirdEntry.filterStrings(names)
-        
+        for snippet in self.entrySnippets{
+            let entrySnip = self.value(forKey: snippet) as! SearchTextField
+            entrySnip.inlineMode = true
+            entrySnip.startFilteringAfter = "@"
+            entrySnip.startSuggestingInmediately = true
+            entrySnip.filterStrings(self.names)
+        }
     }
 
     
@@ -146,7 +174,6 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         let range = NSMakeRange(0, inString.characters.count)
         let matches = (regex?.matches(in: inString, options: [], range: range))!
         let attrString = NSMutableAttributedString(string: inString, attributes:nil)
-        //Iterate over regex matches
         for match in matches.reversed() {
             for i in 1...2{
                 let matchRange = match.rangeAt(i)
@@ -157,7 +184,6 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
                     attrString.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange , range: matchRange)
                 }
             }
-            
         }
         return (attrString, mentions)
     }
@@ -200,6 +226,7 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
     func setUpFireBaseAuthUI() {
         self.auth = Auth.auth()
         self.authUI = FUIAuth.defaultAuthUI()
+        self.authUI?.isSignInWithEmailHidden = true;
         self.authUI?.delegate = self
         self.authUI?.providers = [FUIPhoneAuth(authUI: self.authUI!),]
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
@@ -207,6 +234,39 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
                 self.loginAction(sender: self)
                 return
             }
+        }
+    }
+    
+    func displayAlertToGetName() {
+        if Auth.auth().currentUser?.displayName != nil{
+            return
+        } else {
+            //1. Create the alert controller.
+            let alert = UIAlertController(title: "Your Name", message: "Last thing - what is thy name? Let others know who you are when you tag them. :)", preferredStyle: .alert)
+            
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = textField?.text
+                changeRequest?.commitChanges { (error) in
+                    return
+                }
+            })
+            
+            saveAction.isEnabled = false
+            alert.addAction(saveAction)
+
+            //2. Add the text field. You can configure it however you need.
+            alert.addTextField { (textField) in
+                textField.placeholder = "Pooh Bear"
+                textField.autocapitalizationType = .words
+                textField.clearsOnBeginEditing = true
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
+                    saveAction.isEnabled = textField.text!.characters.count > 2
+                }
+            }
+            // 4. Present the alert.
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -224,14 +284,15 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
                 self.retrieveContacts({ (success, contacts) in
                     if success && (contacts?.count)! > 0 {
                         self.contacts = contacts!
+                        self.names = self.contacts.map{$0.name.lowercased()}
+                        self.names.sort()
                     } else {
                         print("Unable to get contacts")
                     }
                 })
             }
         }
-        names = contacts.map{$0.name.lowercased()}
-        names.sort()
+
     }
     
     func requestAccessToContacts(_ completion: @escaping (_ success: Bool) -> Void) {
@@ -261,6 +322,48 @@ class NewEntryViewController: UIViewController, UITextFieldDelegate, AKPickerVie
         }
     }
     
+    func sendMentions() {
+        let phoneNumberKit = PhoneNumberKit()
+        for (key,values) in self.mentions{
+            for person in values {
+                let currentUser = Auth.auth().currentUser!
+                let textField = self.value(forKey: key) as? SearchTextField
+                let unparsedPhone = self.contacts.first(where: {$0.name.lowercased() == person})?.phone
+                do {
+                    let parsedPhone = try phoneNumberKit.parse(unparsedPhone!)
+                    let phoneNumber = phoneNumberKit.format(parsedPhone, toType: .e164)
+                    print(currentUser.displayName!)
+                    let newMention = Mention(mC: textField!.text!, oU: currentUser.uid, oN: currentUser.displayName!, tP: phoneNumber, tN: person, mD: getDate())
+                    let ref = Database.database().reference()
+                    let key = ref.child("mentions").childByAutoId().key
+                    let mention = ["mentionContent" : newMention.mentionContent,
+                                   "originUser" : newMention.originUser,
+                                   "originName" : newMention.originName,
+                                   "taggedPhone" : newMention.taggedPhone,
+                                   "taggedName" : newMention.taggedName]
+                    let mentionUpdate = ["/mentions/\(phoneNumber)/\(key)": mention]
+                    ref.updateChildValues(mentionUpdate, withCompletionBlock: { (error, ref) -> Void in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    ref.child("Users").queryOrdered(byChild: "phoneNumber").queryEqual(toValue: phoneNumber).observeSingleEvent(of: .value, with: { (snapshot) in
+                        if snapshot.exists() {
+                            
+                        } else {
+                            print("sending twilio text")
+                        }
+                    }) { (error) in
+                        print(error.localizedDescription)
+                    }
+                    //check if any user has destination phone number
+                    // if yes then send notification
+                    // if no then send text
+                } catch {
+                    print("Couldn't parse number")
+                }
+            }
+        }
+    }
+
 }
 
 ///MARK: Login Extensions
@@ -268,6 +371,13 @@ extension NewEntryViewController {
     @IBAction func loginAction(sender: AnyObject) {
         // Present the default login view controller provided by authUI
         let authViewController = authUI?.authViewController();
+        authViewController?.navigationBar.isHidden = true
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        label.center = CGPoint(x: authViewController!.view.center.x , y: authViewController!.view.center.y)
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.text = "Welcome to my gratitude journal! :)"
+        authViewController?.view.addSubview(label)
         self.present(authViewController!, animated: true, completion: nil)
     }
     

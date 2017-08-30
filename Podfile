@@ -11,5 +11,6 @@ target 'MyGratitudeJournal' do
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Auth', '~> 4.0'
   pod 'FirebaseUI/Phone', '~> 4.0'
+  pod 'PhoneNumberKit', '~> 1.3'
 
 end

@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhoneNumberKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MyGratitudeJournal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42DA7692296D8C19E55790CAF2CE7145</key>
+		<key>5BA13562A3D11617D6CD60D7A2E3FD66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BA13562A3D11617D6CD60D7A2E3FD66</key>
+		<key>77229AB9A2C57C516F449D0975F1B57D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8C5BD10883BD185426DD737247F56DEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

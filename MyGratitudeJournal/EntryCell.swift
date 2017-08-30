@@ -20,7 +20,7 @@ class EntryCell: UITableViewCell {
     }
     
     func updateUI(_ entry: Entry) {
-        entrySnippet.text = entry.gtudeFirstEntry + " " + entry.gtudeSecondEntry + " " + entry.gtudeThirdEntry + entry.xcitedFirstEntry + " " + entry.xcitedSecondEntry + " " + entry.xcitedThirdEntry
+        entrySnippet.text = entry.highlightFirstEntry + " " + entry.highlightSecondEntry + " " + entry.highlightThirdEntry + " " + entry.gtudeFirstEntry + " " + entry.gtudeSecondEntry + " " + entry.gtudeThirdEntry + entry.xcitedFirstEntry + " " + entry.xcitedSecondEntry + " " + entry.xcitedThirdEntry
         dateLabel.text = getDate(entry.entryDate)
         emotionLabel.text = entry.entryEmotion
     }
@@ -31,7 +31,7 @@ class EntryCell: UITableViewCell {
         dateFormatter.timeZone = TimeZone(abbreviation: "PST")
         dateFormatter.locale = Locale.current
         let date = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "MM-dd"
+        dateFormatter.dateFormat = "MM-dd HH:mm"
         return dateFormatter.string(from: date!)
     }
 }
